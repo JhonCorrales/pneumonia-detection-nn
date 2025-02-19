@@ -1,8 +1,15 @@
-import { AppBar, Toolbar, Button, Box, Typography } from '@mui/material';
+import { AppBar, Toolbar, Button, Box, Typography, IconButton } from '@mui/material';
 import { Link, useLocation } from 'react-router-dom';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
 import LocalHospitalIcon from '@mui/icons-material/LocalHospital';
 
-const Navbar = () => {
+interface NavbarProps {
+  darkMode: boolean;
+  onToggleTheme: () => void;
+}
+
+const Navbar = ({ darkMode, onToggleTheme }: NavbarProps) => {
   const location = useLocation();
 
   return (
@@ -14,7 +21,7 @@ const Navbar = () => {
             DetectPneumonia
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2 }}>
+        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
           <Button
             component={Link}
             to="/"
@@ -31,6 +38,9 @@ const Navbar = () => {
           >
             Detección
           </Button>
+          <IconButton onClick={onToggleTheme} color="primary">
+            {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
