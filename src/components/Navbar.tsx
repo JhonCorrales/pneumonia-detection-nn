@@ -12,33 +12,36 @@ interface NavbarProps {
 const Navbar = ({ darkMode, onToggleTheme }: NavbarProps) => {
   const location = useLocation();
 
+  const navItems = [
+    { path: '/', label: 'Inicio' },
+    { path: '/diagnosis', label: 'Diagnóstico' },
+    { path: '/results', label: 'Resultados' },
+    { path: '/info', label: 'Información' },
+  ];
+
   return (
-    <AppBar position="static" color="default" elevation={1}>
+    <AppBar position="sticky" elevation={1}>
       <Toolbar>
         <Box sx={{ display: 'flex', alignItems: 'center', flexGrow: 1 }}>
-          <LocalHospitalIcon sx={{ mr: 2, color: 'primary.main' }} />
-          <Typography variant="h6" color="primary" component={Link} to="/" sx={{ textDecoration: 'none' }}>
-            DetectPneumonia
+          <LocalHospitalIcon sx={{ mr: 2 }} />
+          <Typography variant="h6" component={Link} to="/" 
+            sx={{ textDecoration: 'none', color: 'inherit' }}>
+            NeumonIA
           </Typography>
         </Box>
-        <Box sx={{ display: 'flex', gap: 2, alignItems: 'center' }}>
-          <Button
-            component={Link}
-            to="/"
-            color="primary"
-            variant={location.pathname === '/' ? 'contained' : 'text'}
-          >
-            Inicio
-          </Button>
-          <Button
-            component={Link}
-            to="/upload"
-            color="primary"
-            variant={location.pathname === '/upload' ? 'contained' : 'text'}
-          >
-            Detección
-          </Button>
-          <IconButton onClick={onToggleTheme} color="primary">
+        <Box sx={{ display: 'flex', gap: 1, alignItems: 'center' }}>
+          {navItems.map((item) => (
+            <Button
+              key={item.path}
+              component={Link}
+              to={item.path}
+              color="inherit"
+              variant={location.pathname === item.path ? 'outlined' : 'text'}
+            >
+              {item.label}
+            </Button>
+          ))}
+          <IconButton onClick={onToggleTheme} color="inherit" sx={{ ml: 1 }}>
             {darkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
         </Box>
