@@ -2,7 +2,7 @@ from pneumonia_detection import train_model, evaluate_model
 import os
 
 # Configura las rutas a los diferentes conjuntos de datos
-BASE_PATH = "path/to/your/dataset"  # Actualiza esta ruta base
+BASE_PATH = ".\data\chest_xray"  # Actualiza esta ruta base
 TRAIN_DIR = os.path.join(BASE_PATH, "train")
 VAL_DIR = os.path.join(BASE_PATH, "val")
 TEST_DIR = os.path.join(BASE_PATH, "test")
