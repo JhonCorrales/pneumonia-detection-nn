@@ -1,50 +1,28 @@
-# React + TypeScript + Vite
+# Sistema de Detección de Neumonía
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Este proyecto implementa un sistema de detección de neumonía utilizando deep learning y radiografías de tórax. El sistema está construido con:
 
-Currently, two official plugins are available:
+- Frontend: React + TypeScript + Vite
+- Backend: FastAPI + Python
+- Modelo: CNN entrenada con PyTorch
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Características
+- Interfaz web para subir imágenes de rayos X
+- Análisis en tiempo real de radiografías
+- Visualización de resultados y predicciones
+- API REST para integración con otros sistemas
 
-## Expanding the ESLint configuration
+## Dataset
+Para obtener el dataset, sigue estos pasos:
+1. Descarga el dataset de [Kaggle](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia).
+2. Extrae el archivo ZIP en la carpeta `backend/data/`.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+La estructura del directorio después de extraer debería verse así:
 ```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+backend/
+  data/
+    chest_xray/
+      train/
+      test/
+      val/
 ```
