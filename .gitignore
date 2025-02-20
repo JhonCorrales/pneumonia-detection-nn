@@ -27,6 +27,9 @@ dist-ssr
 *.sln
 *.sw?
 
+# Ignore data folder
+data/
+
 # Operating system files
 Thumbs.db
 ehthumbs.db
