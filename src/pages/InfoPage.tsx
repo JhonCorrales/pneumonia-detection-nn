@@ -23,21 +23,21 @@ const InfoPage = () => {
                   <ListItemIcon><CodeIcon color="primary" /></ListItemIcon>
                   <ListItemText 
                     primary="Frontend" 
-                    secondary="React, TypeScript, Material-UI"
+                    secondary="React, TypeScript, Material-UI, React Router Dom, Axios"
                   />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><StorageIcon color="primary" /></ListItemIcon>
                   <ListItemText 
                     primary="Backend" 
-                    secondary="Python, Flask, TensorFlow"
+                    secondary="FastAPI, SQLAlchemy, TensorFlow"
                   />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><BiotechIcon color="primary" /></ListItemIcon>
                   <ListItemText 
                     primary="IA" 
-                    secondary="Redes Neuronales Convolucionales (CNN)"
+                    secondary="Redes Neuronales Convolucionales, Transfer Learning"
                   />
                 </ListItem>
               </List>
@@ -53,15 +53,15 @@ const InfoPage = () => {
                 <ListItem>
                   <ListItemIcon><SchoolIcon color="primary" /></ListItemIcon>
                   <ListItemText 
-                    primary="Entrenamiento" 
-                    secondary="Entrenado con más de 5,000 radiografías de tórax"
+                    primary="Dataset" 
+                    secondary="Entrenado con el conjunto de datos Chest X-Ray Images (Pneumonia)"
                   />
                 </ListItem>
                 <ListItem>
                   <ListItemIcon><BiotechIcon color="primary" /></ListItemIcon>
                   <ListItemText 
-                    primary="Precisión" 
-                    secondary="Precisión superior al 90% en la detección"
+                    primary="Capacidades" 
+                    secondary="Clasificación binaria: Normal vs Neumonía"
                   />
                 </ListItem>
               </List>
