@@ -60,16 +60,20 @@ const Detection = () => {
     formData.append('file', selectedFile);
 
     try {
-      const response = await fetch('http://localhost:5173/detect', {
+      const response = await fetch('http://localhost:8000/predict', {
         method: 'POST',
         body: formData,
+        // Remove any custom headers to let the browser handle CORS
       });
       
-      if (!response.ok) throw new Error('Error en el servidor');
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
       
       const data = await response.json();
-      setResult(data.result);
+      setResult(`${data.diagnosis} (Probabilidad: ${(data.probability * 100).toFixed(2)}%)`);
     } catch (error) {
+      console.error('Error:', error);
       setError('Error al procesar la imagen. Por favor intente nuevamente.');
     } finally {
       setLoading(false);
